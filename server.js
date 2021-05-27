@@ -5,6 +5,7 @@ const express = require("express"),
   Task = require("./api/models/taskModel"),
   bodyParser = require("body-parser");
 
+// Handle an error when we use "npm run start" command
 const options = {
   useUnifiedTopology : true,
   useNewUrlParser: true

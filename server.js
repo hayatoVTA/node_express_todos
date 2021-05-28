@@ -5,15 +5,22 @@ const express = require("express"),
   Task = require("./api/models/taskModel"),
   bodyParser = require("body-parser");
 
+const cors = require('cors');
+
 // Handle an error when we use "npm run start" command
 const options = {
   useUnifiedTopology : true,
-  useNewUrlParser: true
+  useNewUrlParser: true,
 }
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/Tododb", options);
 
+app.use(cors({
+  origin: 'http://localhost:3000', // Access permit origin
+  credentials: true, // Add Access-Control-Allow-Credentials to response headers
+  optionsSuccessStatus: 200 // Set response status (200)
+}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

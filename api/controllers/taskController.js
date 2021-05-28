@@ -3,7 +3,7 @@ const mongoose = require("mongoose"),
 
 // Get all tasks
 exports.all_tasks = (req, res) => {
-  Task.find({}, function(err, task) {
+  Task.find({}, (err, task) => {
     if (err) res.send(err);
     res.json(task);
   });
